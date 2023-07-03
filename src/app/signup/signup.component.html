@@ -1,0 +1,219 @@
+<div class="login-page" *ngIf="content">
+  <div class="loginn">
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <div class="row">
+          <div class=" img1 mt-5">
+            <img src="../../assets/project_logo 4.svg" class="logoimg">
+          </div>
+        </div>
+        <div class="para mt-2">
+          <span style="color:#FFFFFF;">WHERE </span>
+          <span style="color:#D80202;">DATA</span>
+          <div class="cp" style="color:#FFFFFF;">COMES INTO PICTURE...!</div>
+
+        </div>
+       
+        <div class="row">
+          <div class=" img2 mt-30">
+            <img src="../../assets/image 13.svg " class="imgcom">
+          </div>
+        </div>
+        <div class="para2">
+          <p class="text1">Data Never sleeps</p>
+          <p class="text2">So why should we ?</p>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12">
+
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-lg-12  ">
+
+              <div class="login-btn">
+                <button class="btn btn-primary login " [routerLink]="''">Login</button>
+                <!-- </div> -->
+                <!-- <div class=""> -->
+                  <button class="btn btn-primary signup" routerLink="/signup">Sign Up</button>
+                <!-- <button class="btn btn-primary signup" (onclick)="signupRouter()">Sign Up</button> -->
+              </div>
+            </div>
+          </div>
+
+         
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center welcome">Welcome</h1>
+            </div>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="signupform">
+
+              <div class="section">
+                <label> Email ID.</label>
+                    <div class="emailpad">
+                  <span class="icon"> <img src="../../assets/image 12.svg" class="img"></span>
+                 
+                    <input type="email" class="form-control email-Input" placeholder="valid@gmail.com" formControlName="email">
+              </div>
+                <small class="notify" *ngIf="(signupform.controls['email'].touched && signupform.get('email')?.hasError('required'))"
+                  style="color: red;">Email Required</small>
+                <small class="notify" *ngIf="(signupform.controls['email'].touched && signupform.get('email')?.hasError('pattern'))"
+                  style="color: red;">you have entered invalid credential please check again.</small>
+              </div>
+                             
+              
+              <a id="forget" class="font-weight-bold forget" (click)='startTimer()'>send otp</a>
+              <div class="section1">
+                  <label>enter otp</label>
+                  <div class="otppad">
+                      <span class="icon icon1">  <img src="../../assets/image 23.png " class="imgw"></span>
+                      <input type="{{psVisible? 'otp' : 'text'}}" class="form-control ps-input" placeholder="enter otp" formControlName="otp">
+                  </div>
+                  <!-- <div class="icons"><span (click)="hideShowPass()" class="fa {{eyeIcon}} "></span></div> -->
+                  <!-- <i class="{{ psVisible ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass()"></i> -->
+                  
+                  <small class="notify1" *ngIf="(signupform.controls['otp'].touched && signupform.get('otp')?.hasError('required'))"
+                  style="color: red;">otp is Required</small>
+                  <small class="notify1" *ngIf="(signupform.controls['otp'].touched && signupform.get('otp')?.hasError('minlength'))"
+                  style="color: red;">otp must be 4 characters</small>
+              </div>
+              <p *ngIf="display!=undefined" style="color:red ; margin-left: 36px;">*opt valid for only {{display }} min</p> 
+              <!-- <small class="notify1" style="color: red;"><div>*OTP valid only for {{ remainingTime }} seconds</div></small> -->
+
+              <br>
+              <br>
+              <br>
+
+              <!-- <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!signupform.valid">Submit</button> -->
+              <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary submitBtn" style="    margin-top: -30px;"
+                     (click)="onSubmit()"
+                    [disabled]="!signupform.valid">verify</button>
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="verify">
+  <div class="login-page">
+      <div class="loginn">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="row">
+              <div class=" img1 mt-5">
+                <img src="../../assets/project_logo 4.svg" class="logoimg">
+              </div>
+            </div>
+            <div class="para mt-2">
+              <span style="color:#FFFFFF;">WHERE </span>
+              <span style="color:#D80202;">DATA</span>
+              <div class="cp" style="color:#FFFFFF;">COMES INTO PICTURE...!</div>
+    
+            </div>
+           
+            <div class="row">
+              <div class=" img2 mt-30">
+                <img src="../../assets/image 13.svg " class="imgcom">
+              </div>
+            </div>
+            <div class="para2">
+              <p class="text1">Data Never sleeps</p>
+              <p class="text2">So why should we ?</p>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+    
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-lg-12  ">
+    
+                  <div class="login-btn">
+                    <button class="btn btn-primary login">Login</button>
+                    <!-- </div> -->
+                    <!-- <div class=""> -->
+                      <button class="btn btn-primary signup" [routerLink]="'/signup'">Sign Up</button>
+                    <!-- <button class="btn btn-primary signup" (onclick)="signupRouter()">Sign Up</button> -->
+                  </div>
+                </div>
+              </div>
+    
+             
+              <div class="row">
+                <div class="col-12">
+                  <h1 class="text-center welcome">Welcome</h1>
+                </div>
+              </div>
+              <div class="panel-body p-3">
+                <form [formGroup]="signupform">
+    
+                  <div class="section">
+                    <label> Email ID.</label>
+                        <div class="emailpad">
+                      <span class="icon"> <img src="../../assets/image 12.svg" class="img"></span>
+                     
+                        <input type="email" class="form-control email-Input" placeholder="valid@gmail.com" formControlName="email">
+                  </div>
+                    <small class="notify" *ngIf="(signupform.controls['email'].touched && signupform.get('email')?.hasError('required'))"
+                      style="color: red;">Email Required</small>
+                    <small class="notify" *ngIf="(signupform.controls['email'].touched && signupform.get('email')?.hasError('pattern'))"
+                      style="color: red;">you have entered invalid credential please check again.</small>
+                  </div>
+    
+                  <div class="section1">
+                    <label>password</label>
+                     <div class="passwordpad">
+                     <!-- <span class="icon icon1">  <img src="../../assets/image 12 (1).svg " class="imgw"></span> -->
+                      <input type="{{psVisible? 'password' : 'text'}}" class="form-control ps-input" placeholder="********" formControlName="password">
+                     </div>
+                      <!-- <div class="icons"><span (click)="hideShowPass()" class="fa {{eyeIcon}} "></span></div> -->
+                        <i class="{{ psVisible ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass()"></i>
+                  
+                    <small class="notify1" *ngIf="(signupform.controls['password'].touched && signupform.get('password')?.hasError('required'))"
+                      style="color: red;">password is Required</small>
+                    <small class="notify1" *ngIf="(signupform.controls['password'].touched && signupform.get('password')?.hasError('minlength'))"
+                      style="color: red;">password must be 8 characters</small>
+                    
+                  </div>
+                  
+                  <div class="section1">
+                      <label>Confirm Password</label>
+                       <div class="passwordpad1">
+                       <!-- <span class="icon icon1">  <img src="../../assets/image 12 (1).svg " class="imgw"></span> -->
+                        <input type="{{psVisible? 'password' : 'text'}}" class="form-control ps-input" placeholder="********" formControlName="confirmpassword">
+                       </div>
+                          <i class="{{ psVisible ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass()"></i>
+                    
+                          <small class="notify1"
+                          *ngIf="(signupform.controls['confirmpassword'].touched  && signupform.get('confirmpassword')?.hasError('misMatch'))"
+                          style="color: red;">Password Must Match</small>
+                    </div>
+      
+    
+                  <!-- <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!signupform.valid">Submit</button> -->
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                      <button type="submit" class="btn btn-primary submitBtn"
+                         (click)="onSubmit()"
+                        [disabled]="!signupform.valid">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+</div>

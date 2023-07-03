@@ -1,0 +1,243 @@
+<div *ngIf="content">
+<div class="login-page">
+    <div class="loginn">
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <div class="row">
+            <div class=" img1 mt-5">
+              <img src="../../assets/project_logo 4.svg" class="logoimg">
+            </div>
+          </div>
+          <div class="para mt-2">
+            <span style="color:#FFFFFF;">WHERE </span>
+            <span style="color:#D80202;">DATA</span>
+            <div class="cp" style="color:#FFFFFF;">COMES INTO PICTURE...!</div>
+  
+          </div>
+         
+          <div class="row">
+            <div class=" img2 mt-30">
+              <img src="../../assets/image 13.svg " class="imgcom">
+            </div>
+          </div>
+          <div class="para2">
+            <p class="text1">Data Never sleeps</p>
+            <p class="text2">So why should we ?</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12">
+  
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-lg-12  ">
+  
+                <div class="login-btn">
+                  <button class="btn btn-primary login">Login</button>
+
+
+                 
+                  <button class="btn btn-primary signup"  [routerLink]="'/signup'">Sign Up</button>
+
+                </div>
+              </div>
+            </div>
+  
+           <div *ngIf="top">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="text-center welcome">Welcome Back</h1>
+              </div>
+            </div>
+            <div class="panel-body p-3">
+              <form [formGroup]="regform">
+  
+                <div class="section">
+                  <label> Email ID.</label>
+                      <div class="emailpad">
+                    <span class="icon"> <img src="../../assets/image 12.svg" class="img"></span>
+                   
+                      <input type="email" class="form-control email-Input" placeholder="valid@gmail.com" formControlName="email">
+                </div>
+                  <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('required'))"
+                    style="color: red;">Email Required</small>
+                  <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('pattern'))"
+                    style="color: red;">you have entered invalid credential please check again.</small>
+                </div>
+  
+                <div class="section1">
+                  <label>Password</label>
+                   <div class="passwordpad">
+                   <span class="icon icon1">  <img src="../../assets/image 12 (1).svg " class="imgw"></span>
+                    <input type="{{psVisible? 'password' : 'text'}}" class="form-control ps-input" placeholder="********" formControlName="password">
+                   </div>
+                      <i class="{{ psVisible ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass()"></i>
+                
+                  <small class="notify1" *ngIf="(regform.controls['password'].touched && regform.get('password')?.hasError('required'))"
+                    style="color: red;">password is Required</small>
+                  <small class="notify1" *ngIf="(regform.controls['password'].touched && regform.get('password')?.hasError('minlength'))"
+                    style="color: red;">password must be 8 characters</small>
+                  
+                </div>
+  
+                <a id="forget" class="font-weight-bold forget" (click)="forget()">Forgot password?</a>
+                <br>
+                <br>
+                <br>
+  
+               
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary submitBtn"
+                       (click)="onSubmit()"
+                      [disabled]="!(regform.controls['email'].valid && regform.controls['password'].valid)">Submit</button>
+                  </div>
+                </div>
+              </form>
+             </div>
+             </div>
+         
+  <div *ngIf="verify">
+<div class="row">
+                    <div class="col-12">
+                      <h1 class="text-center welcome">Forgot Password</h1>
+                    </div>
+                  </div>
+                  <div class="panel-body p-3">
+                    <form [formGroup]="regform">
+        
+                      <div class="section">
+                        <label> Email ID.</label>
+                            <div class="emailpad">
+                          <span class="icon"> <img src="../../assets/image 12.svg" class="img"></span>
+                         
+                            <input type="email" class="form-control email-Input" placeholder="valid@gmail.com" formControlName="email">
+                      </div>
+                        <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('required'))"
+                          style="color: red;">Email Required</small>
+                        <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('pattern'))"
+                          style="color: red;">you have entered invalid credential please check again.</small>
+                      </div>
+        
+                      
+        
+                      
+                      <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                          <button type="submit" class="btn btn-primary Btn"
+                             (click)="otp()" 
+                            [disabled]="!regform.controls['email'].valid">Send OTP</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+             
+<div *ngIf="verify1">
+   <div class="row">
+              <div class="col-12">
+                <h1 class="text-center welcome">Forgot Password</h1>
+              </div>
+            </div>
+            <div class="panel-body p-3">
+              <form [formGroup]="regform">
+  
+                <div class="section">
+                  <label> Email ID.</label>
+                      <div class="emailpad">
+                    <span class="icon"> <img src="../../assets/image 12.svg" class="img"></span>
+                   
+                      <input type="email" class="form-control email-Input" placeholder="valid@gmail.com" formControlName="email">
+                </div>
+                  <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('required'))"
+                    style="color: red;">Email Required</small>
+                  <small class="notify" *ngIf="(regform.controls['email'].touched && regform.get('email')?.hasError('pattern'))"
+                    style="color: red;">you have entered invalid credential please check again.</small>
+                </div>
+  
+                <div class="section1">
+                  <label>Enter OTP</label>
+                   <div class="passwordpad">
+                   <span class="icon icon1">  <img src="../../assets/image 23.png " class="imgl"></span>
+                    <input type="text" class="form-control ps-input" placeholder="Enter OTP" formControlName="password">
+                   </div>
+                  <!-- <p (click)="pass()">send otp</p>     -->
+                  <small class="notify1" style="color: red;" [(ngModel)]="sent" ><div>*OTP valid only for {{ remainingTime }} seconds</div></small>
+                  <small class="notify2" 
+                    style="color:#034394;" (click)="pass()">send OTP</small>
+                  
+                </div>
+                 <br>
+                 <br>
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary submitBtn"
+                       (click)="updating()"
+                      [disabled]="!regform.controls['email'].valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+<div *ngIf="update">
+    <div class="row">
+                  <div class="col-12">
+                    <h1 class="text-center welcome">Update Password</h1>
+                  </div>
+                </div>
+                <div class="panel-body p-3">
+                  <form [formGroup]="regform">
+      
+                    <div class="section">
+                      <label> New Password</label>
+                          <div class="passwordpad">
+                            <span class="icon icon1">  <img src="../../assets/image 12 (1).svg " class="imgw"></span>
+                       
+                            <input type="{{psVisible? 'password' : 'text'}}" class="form-control ps-input" placeholder="********" formControlName="password">
+                          </div>
+                             <i class="{{ psVisible ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass()"></i>
+                             <small class="notify1" *ngIf="regform.controls['password'].touched && 
+                             (regform.get('password')?.hasError('required') || 
+                             regform.get('password')?.hasError('invalidPassword'))" style="color: red;">
+                                 {{ regform.get('password')?.hasError('required') ? 'Password is required' :
+                                '*Password must contain minumum 8 characters including numbersuppercase and lowercase letters and special characters(!@#%&)'}}
+                             </small>
+                    </div>
+                      
+                
+      
+                    <div class="section1">
+                      <label>Confirm Password</label>
+                       <div class="passwordpad">
+                       <span class="icon icon1">  <img src="../../assets/image 12 (1).svg " class="imgw"></span>
+                        <input type="{{psVisible1? 'password' : 'text'}}" class="form-control ps-input" placeholder="********" formControlName="confirmpassword">
+                       </div>
+                          <i class="{{ psVisible1 ? 'fa fa-eye-slash' : 'fa fa-eye' }} eyeiconn"  aria-hidden="true" (click)="hideShowPass1()"></i>
+                    
+                          <small class="notify1"
+                          *ngIf="(regform.controls['confirmpassword'].touched  && regform.get('confirmpassword')?.hasError('misMatch'))"
+                          style="color: red;">Password Must Match</small>
+                    </div>
+      
+                   
+                    <br>
+                    <br>
+      
+                   
+                    <div class="row">
+                      <div class="col-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary submitBtn"
+                           (click)="onSubmit()">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+          
+</div>
+</div>
+</div>
+</div>
+
+</div>
+  
